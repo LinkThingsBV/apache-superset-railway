@@ -8,8 +8,9 @@ RUN apt-get update && apt-get install -y \
     default-libmysqlclient-dev \
     build-essential \
     && rm -rf /var/lib/apt/lists/*
-
-RUN pip install mysqlclient psycopg2
+    
+# Install PostgreSQL driver (no compilation needed)
+RUN pip install psycopg2-binary
 
 ENV ADMIN_USERNAME $ADMIN_USERNAME
 ENV ADMIN_EMAIL $ADMIN_EMAIL
